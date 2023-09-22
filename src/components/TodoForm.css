@@ -28,7 +28,7 @@ h3{
 .input-form{
     margin: 0px;
     width: 70% !important;
-    background-color: brown;
+    
     padding: 10px;
     border-radius: 5px;
     font-size: 20px;
@@ -39,11 +39,9 @@ h3{
     border-radius: 5px;
     font-size: 20px;
 }
-@media Screen and (max-width:500px){
+@media Screen and (max-width:650px){
     .container{
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 30%;
-        background-color: blue;
+        margin:auto
+       
         }
 }

@@ -1,18 +1,25 @@
 .flex-box{
     display: flex;
-    background-color: rgb(212, 235, 8);
-    justify-content:space-between;
-    height:40px;
     border-radius: 5px;
+    flex-direction: column;
+    
     
 }
-.flex-box>div{
-    background-color: antiquewhite;
-      
-}
-.flex-item1{
-    margin:10px;
-    height:25px;
+.flex-item{
+    background-color: blueviolet;
+    display: flex;
+    margin:3px;
+    height:35px;
+    border-radius: 5px;
+    justify-content: space-between;
+    padding: 2px;
 
+}
+i{
+    font-size: 25px;
+    
+}
+button{
+    background-color: blueviolet;
 }
 

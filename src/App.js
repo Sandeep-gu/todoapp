@@ -1,12 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
 import TodoForm from './components/TodoForm';
+import TodoNavbar from './components/TodoNavbar';
 function App() {
   return (
     <div>
-      <div>
+      
+      <TodoNavbar/>
         <TodoForm/>
-      </div>
+      
     </div>
   );
 }
