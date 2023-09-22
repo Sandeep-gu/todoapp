@@ -1,0 +1,11 @@
+li {
+	border: 2px solid black;
+	margin-top: 0.5rem;
+	list-style-type: none;
+	padding: 0.4rem;
+	display: flex;
+	justify-content: space-between;
+}
+.btns button {
+	margin-left: 0.4rem;
+}
