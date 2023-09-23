@@ -18,6 +18,7 @@ function App() {
 	return (
 		<GlobalContext.Provider value={{ items, setItems }}>
 			<div className="app-wrapper">
+				<h1 className="todo-app-heading">Todo APP</h1>
 				<div className="app-content">
 					<TodoForm />
 					<TodoList />
