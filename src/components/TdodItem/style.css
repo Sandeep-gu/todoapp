@@ -1,11 +1,62 @@
-li {
+.todo-item-wrapper {
 	border: 2px solid black;
 	margin-top: 0.5rem;
 	list-style-type: none;
-	padding: 0.4rem;
 	display: flex;
+	align-items: center;
 	justify-content: space-between;
+	list-style-type: none;
+	background-color: white;
+	font-size: 1.2rem;
+	padding: 0.5rem 1rem;
+	border-radius: 0.4rem;
+	border: none;
+	overflow: hidden;
+	transition: all 0.3s ease-in-out;
 }
-.btns button {
-	margin-left: 0.4rem;
+.btns {
+	display: flex;
+	gap: 0.6rem;
+	transform: translateX(200%);
+	transition: all 0.3s ease-in-out;
+}
+.todo-item-wrapper:hover .btns {
+	transform: translateX(0%);
+}
+.btn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 1.4rem;
+	padding: 0.3rem 0.8rem;
+	color: white;
+	outline: none;
+	border: none;
+	border-radius: 0.4rem;
+	transition: all 0.2s ease-in-out;
+}
+.delete-btn {
+	background-color: red;
+}
+.complete-btn {
+	background-color: rgb(8, 157, 63);
+}
+
+.complete-btn:hover {
+	background-color: rgb(3, 119, 46);
+}
+.delete-btn:hover {
+	background-color: rgb(196, 8, 8);
+}
+
+.todo-item-wrapper {
+	/* ... your existing styles ... */
+	scale: 1;
+	opacity: 1;
+	transition: all 200ms ease-in-out; /* Adjust the duration to your preference */
+}
+
+.todo-item-wrapper.delete {
+	transform: scaleX(0);
+	opacity: 0;
 }

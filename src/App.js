@@ -17,10 +17,12 @@ function App() {
 	}, []);
 	return (
 		<GlobalContext.Provider value={{ items, setItems }}>
-			<div className="container">
-				<TodoForm />
-				<TodoList />
-				<CompletedTodo />
+			<div className="app-wrapper">
+				<div className="app-content">
+					<TodoForm />
+					<TodoList />
+					<CompletedTodo />
+				</div>
 			</div>
 		</GlobalContext.Provider>
 	);

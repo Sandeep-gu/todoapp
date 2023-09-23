@@ -1,6 +1,5 @@
 import React, { useContext, useState } from "react";
 import { GlobalContext } from "../../App";
-import TodoItem from "../TdodItem";
 
 const CompletedTodo = () => {
 	const { items, setItems } = useContext(GlobalContext);

@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import "./style.css";
 import { GlobalContext } from "../../App";
-
+import { AiOutlinePlus } from "react-icons/ai";
 const createTodo = (content) => {
 	return { id: new Date().toISOString(), content: content, complete: false };
 };
@@ -23,9 +23,8 @@ function TodoForm() {
 
 	return (
 		<>
-			<div className="container">
-				<h3>TodoForm</h3>
-				<form className="form-control" onSubmit={addTask}>
+			<div className="form-wrapper">
+				<form className="form-container" onSubmit={addTask}>
 					<input
 						className="input-form"
 						type="text"
@@ -34,7 +33,7 @@ function TodoForm() {
 						placeholder="Enter your data"
 					/>
 					<button className="form-btn" type="Submit">
-						+
+						<AiOutlinePlus />
 					</button>
 				</form>
 			</div>

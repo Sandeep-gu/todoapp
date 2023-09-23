@@ -5,7 +5,7 @@ import { GlobalContext } from "../../App";
 function TodoList() {
 	const { items } = useContext(GlobalContext);
 	return (
-		<div className="container-list">
+		<div className="todo-list-wrapper">
 			<ul>
 				{items.map((item, index) => {
 					if (!item.complete) {
