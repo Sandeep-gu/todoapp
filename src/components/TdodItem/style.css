@@ -50,10 +50,9 @@
 }
 
 .todo-item-wrapper {
-	/* ... your existing styles ... */
 	scale: 1;
 	opacity: 1;
-	transition: all 200ms ease-in-out; /* Adjust the duration to your preference */
+	transition: all 200ms ease-in-out;
 }
 
 .todo-item-wrapper.delete {
