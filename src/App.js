@@ -3,9 +3,11 @@ import TodoForm from "./components/TodoForm";
 import TodoList from "./components/TodoList";
 import "./App.css";
 import CompletedTodo from "./components/CompletedTodo/Index";
+//this is a global context for Context api
 export const GlobalContext = createContext();
 
 function App() {
+	//it is to initiallize todo items
 	const [items, setItems] = useState([]);
 	useEffect(() => {
 		if (localStorage.getItem("todos")) {
@@ -16,6 +18,7 @@ function App() {
 		}
 	}, []);
 	return (
+		
 		<GlobalContext.Provider value={{ items, setItems }}>
 			<div className="app-wrapper">
 				<h1 className="todo-app-heading">Todo APP</h1>

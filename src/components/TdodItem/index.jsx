@@ -96,6 +96,7 @@ function TodoItem({ item }) {
 					</button>
 				</span>
 			</li>
+			{/*created modal for editing data in the local storage*/}
 			{open ? (
 				<div className="modal-wrapper">
 					<div className="modal-content">

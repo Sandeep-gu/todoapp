@@ -2,14 +2,18 @@ import React, { useState, useContext } from "react";
 import "./style.css";
 import { GlobalContext } from "../../App";
 import { AiOutlinePlus } from "react-icons/ai";
+
+//create a new todo for given content
 const createTodo = (content) => {
 	return { id: new Date().toISOString(), content: content, complete: false };
 };
 function TodoForm() {
 	const [inputitem, setInputItem] = useState("");
-	const { items, setItems } = useContext(GlobalContext);
 
-	const addTask = (e) => {
+	//using global context of stored state
+	const { items, setItems } = useContext(GlobalContext);
+	//to add data in the localstorage
+	const addTodo = (e) => {
 		e.preventDefault();
 		if (inputitem) {
 			localStorage.setItem(
@@ -24,7 +28,7 @@ function TodoForm() {
 	return (
 		<>
 			<div className="form-wrapper">
-				<form className="form-container" onSubmit={addTask}>
+				<form className="form-container" onSubmit={addTodo}>
 					<input
 						className="input-form"
 						type="text"
@@ -33,6 +37,7 @@ function TodoForm() {
 						placeholder="Enter your data"
 					/>
 					<button className="form-btn" type="Submit">
+					
 						<AiOutlinePlus />
 					</button>
 				</form>
