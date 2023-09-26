@@ -16,7 +16,6 @@ const Paginate = ({
 		setCurrentPage((preState) => preState + 1);
 	};
 
-	const { items } = useContext(GlobalContext);
 	return (
 		<div className="paginate-wrapper">
 			<button

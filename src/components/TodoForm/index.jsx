@@ -15,7 +15,7 @@ function TodoForm() {
 	const addTodo = (e) => {
 		e.preventDefault();
 		if (inputitem) {
-			const newData = [...items, createTodo(inputitem)].reverse();
+			const newData = [createTodo(inputitem), ...items];
 			localStorage.setItem("todos", JSON.stringify(newData));
 			setItems(newData);
 			setInputItem("");
@@ -31,7 +31,7 @@ function TodoForm() {
 						type="text"
 						value={inputitem}
 						onChange={(e) => setInputItem(e.target.value)}
-						placeholder="Enter your data"
+						placeholder="Enter your todo"
 					/>
 					<button className="form-btn" type="Submit">
 						<AiOutlinePlus />
