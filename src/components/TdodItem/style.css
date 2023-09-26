@@ -86,15 +86,28 @@
 
 .modal-content {
 	width: clamp(300px, 50%, 400px);
-	height: 200px;
+	height: 300px;
 	background-color: white;
 	z-index: 60;
 	display: flex;
 	flex-direction: column;
 	padding-bottom: 2rem;
+	position: relative;
 	box-shadow: 0 0 20px 0.000001px rgb(211, 211, 211);
 	border-radius: 0.5rem;
 }
+.close-btn {
+	position: absolute;
+	top: -2rem;
+	right: -1.6rem;
+	outline: none;
+	border: none;
+	background-color: transparent;
+	font-size: 2rem;
+	color: rgb(77, 77, 77);
+	cursor: pointer;
+}
+
 .modal-content-heading {
 	text-align: center;
 	background-color: coral;
@@ -117,6 +130,7 @@
 .edit-form label {
 	align-self: flex-start;
 	font-size: 2rem;
+	margin-bottom: 0.4rem;
 }
 .edit-form input {
 	width: 100%;

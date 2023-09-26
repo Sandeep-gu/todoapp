@@ -41,7 +41,6 @@ function TodoItem({ item }) {
 
 	const handleEdit = (e, id) => {
 		const getTodoFromLocalStorage = JSON.parse(localStorage.getItem("todos"));
-		console.log("before", getTodoFromLocalStorage);
 		const res = getTodoFromLocalStorage.map((todo) => {
 			if (todo.id === id) {
 				return inputTodo;
@@ -49,7 +48,6 @@ function TodoItem({ item }) {
 				return todo;
 			}
 		});
-		console.log("after", res);
 		localStorage.setItem("todos", JSON.stringify(res));
 	};
 
@@ -67,6 +65,12 @@ function TodoItem({ item }) {
 			setIsDeletingID(null);
 			setItems(updatedData);
 		}, 400); // You can adjust the duration to match your CSS transition duration
+	};
+
+	const closeModalOnOutsideClick = (e) => {
+		if (e.target === document.querySelector("#modal-wrapper")) {
+			setOpen(false);
+		}
 	};
 
 	return (
@@ -103,7 +107,11 @@ function TodoItem({ item }) {
 			</li>
 			{/*created modal for editing data in the local storage*/}
 			{open ? (
-				<div className="modal-wrapper">
+				<div
+					className="modal-wrapper"
+					id="modal-wrapper"
+					onClick={closeModalOnOutsideClick}
+				>
 					<div className="modal-content">
 						<h2 className="modal-content-heading">Edit Todo</h2>
 						<div className="form-wrapper">
@@ -128,6 +136,13 @@ function TodoItem({ item }) {
 								<button className="btn edit-btn-submit">Submit</button>
 							</form>
 						</div>
+						<button
+							type="button"
+							className="close-btn"
+							onClick={() => setOpen(false)}
+						>
+							x
+						</button>
 					</div>
 				</div>
 			) : null}
