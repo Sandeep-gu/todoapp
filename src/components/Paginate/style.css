@@ -1,0 +1,19 @@
+.paginate-wrapper {
+	display: flex;
+	justify-content: center;
+	display: flex;
+	align-items: center;
+}
+
+.paginate-btn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	box-sizing: border-box;
+	padding: 0.4rem 1.6rem;
+	font-size: 1.2rem;
+}
+.current-page {
+	width: 5rem;
+	text-align: center;
+}

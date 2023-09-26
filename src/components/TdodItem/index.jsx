@@ -7,29 +7,13 @@ import { GlobalContext } from "../../App";
 
 function TodoItem({ item }) {
 	const { setItems, items } = useContext(GlobalContext);
-	const [isDeleting, setIsDeleting] = useState(false);
+	const [isDeletingID, setIsDeletingID] = useState(null);
 	const [open, setOpen] = useState(false);
 	const [inputTodo, setInputTodo] = useState({
 		id: "",
 		content: "",
 		complete: false,
 	});
-
-	const handleDelete = (id) => {
-		const localStorageData = JSON.parse(localStorage.getItem("todos"));
-		const updatedData = localStorageData.filter((todo) => {
-			return id !== todo.id;
-		});
-		localStorage.setItem("todos", JSON.stringify(updatedData));
-
-		setIsDeleting(true); // Trigger the deletion animation
-
-		// Remove the item after the animation completes
-		setTimeout(() => {
-			setItems(updatedData);
-			setIsDeleting(false);
-		}, 200); // You can adjust the duration to match your CSS transition duration
-	};
 
 	const handleComplete = (id) => {
 		const localStorageData = JSON.parse(localStorage.getItem("todos"));
@@ -68,9 +52,30 @@ function TodoItem({ item }) {
 		console.log("after", res);
 		localStorage.setItem("todos", JSON.stringify(res));
 	};
+
+	const handleDelete = (id) => {
+		const localStorageData = JSON.parse(localStorage.getItem("todos"));
+		const updatedData = localStorageData.filter((todo) => {
+			return id !== todo.id;
+		});
+		localStorage.setItem("todos", JSON.stringify(updatedData));
+
+		setIsDeletingID(id); // Trigger the deletion animation
+
+		// Remove the item after the animation completes
+		setTimeout(() => {
+			setIsDeletingID(null);
+			setItems(updatedData);
+		}, 400); // You can adjust the duration to match your CSS transition duration
+	};
+
 	return (
 		<>
-			<li className={`todo-item-wrapper ${isDeleting ? "delete" : ""}`}>
+			<li
+				className={`todo-item-wrapper ${
+					isDeletingID === item.id ? "delete" : ""
+				}`}
+			>
 				<span>{item.content} </span>
 				<span className="btns">
 					<button

@@ -3,7 +3,6 @@ import "./style.css";
 import { GlobalContext } from "../../App";
 import { AiOutlinePlus } from "react-icons/ai";
 
-//create a new todo for given content
 const createTodo = (content) => {
 	return { id: new Date().toISOString(), content: content, complete: false };
 };
@@ -16,11 +15,9 @@ function TodoForm() {
 	const addTodo = (e) => {
 		e.preventDefault();
 		if (inputitem) {
-			localStorage.setItem(
-				"todos",
-				JSON.stringify([...items, createTodo(inputitem)])
-			);
-			setItems([...items, createTodo(inputitem)]);
+			const newData = [...items, createTodo(inputitem)].reverse();
+			localStorage.setItem("todos", JSON.stringify(newData));
+			setItems(newData);
 			setInputItem("");
 		}
 	};
@@ -37,7 +34,6 @@ function TodoForm() {
 						placeholder="Enter your data"
 					/>
 					<button className="form-btn" type="Submit">
-					
 						<AiOutlinePlus />
 					</button>
 				</form>

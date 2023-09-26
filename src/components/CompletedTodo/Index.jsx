@@ -5,13 +5,17 @@ import { MdDelete } from "react-icons/md";
 
 const CompletedTodo = () => {
 	const { items, setItems } = useContext(GlobalContext);
+	const [deletedId, setDeletedId] = useState(null);
 
 	const handleDelete = (id) => {
 		const localStorageData = JSON.parse(localStorage.getItem("todos"));
-		console.log(localStorageData);
 		const updatedTodo = localStorageData.filter((todo) => todo.id !== id);
 		localStorage.setItem("todos", JSON.stringify(updatedTodo));
-		setItems(updatedTodo);
+		setDeletedId(id);
+		setTimeout(() => {
+			setDeletedId(null);
+			setItems(updatedTodo);
+		}, 400);
 	};
 	return (
 		<div className="completed-todo-wrapper">
@@ -19,11 +23,16 @@ const CompletedTodo = () => {
 				<span>Completed Todo</span>
 			</h4>
 
-			<ul className="incomplete-todo">
+			<ul className="completed-todo">
 				{items.map((item) => {
 					if (item.complete) {
 						return (
-							<li key={item.id}>
+							<li
+								key={item.id}
+								className={`delete-list-class ${
+									deletedId === item.id ? "deleting-animation" : ""
+								}`}
+							>
 								<span>{item.content}</span>
 								<button
 									className="btn delete-btn"
